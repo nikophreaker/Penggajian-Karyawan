@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aec1423a-b027-4b54-84c3-014a84c22bc4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nip" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT * FROM `gaji` inner join dk on gaji.nip=dk.nip inner join jabatan on gaji.kd_jabatan=jabatan.kd_jabatan inner join lembur on gaji.id_lembur=lembur.id_lembur inner join golongan on gaji.gol=golongan.gol where dk.nip=$P{nip}]]>
+	</queryString>
+	<field name="kd_gaji" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nip" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kd_jabatan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gol" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_lembur" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_potongan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total_gaji" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tempat_lahir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal_lahir" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenis_kelamin" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="agama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pernikahan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="anak" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pendidikan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_diangkat" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nm_jabatan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="gaji_pokok" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jam_lembur" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="upah_lembur" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tunjangan_jabatan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="86aa68c4-734c-48a4-b94b-7988fe22d01d"/>
+				<textElement textAlignment="Center">
+					<font size="48" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SLIP GAJI]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="e0a3328d-4053-4a01-a59c-7ca4b4c69ac7"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="48" y="0" width="100" height="20" uuid="f55b2705-6ede-49de-8205-57b698f3950c"/>
+				<text><![CDATA[Nama	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="20" width="100" height="20" uuid="db21eb99-b080-4452-9275-7f278b230c1e"/>
+				<text><![CDATA[NIP	:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="106" y="20" width="100" height="20" uuid="20c80b1a-289e-4750-8eb4-4689907249fd"/>
+				<textFieldExpression><![CDATA[$P{nip}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="0" width="100" height="20" uuid="afeeeab6-e9a9-44bf-8f71-a4b82403b065"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="221" splitType="Stretch">
+			<textField>
+				<reportElement x="162" y="0" width="100" height="20" uuid="c2dee7b7-8f58-420e-9f10-fae8ebf15fcd"/>
+				<textFieldExpression><![CDATA[$F{gaji_pokok}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="20" width="135" height="20" uuid="05b35933-55a4-408c-8acd-7662b977d2d7"/>
+				<textFieldExpression><![CDATA[$F{tunjangan_jabatan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="40" width="100" height="20" uuid="59cc41ac-db7b-4bb5-90ae-38a8d58e2026"/>
+				<textFieldExpression><![CDATA[$F{upah_lembur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="60" width="100" height="20" uuid="5cec715e-e910-4f70-af84-e857fb429fae"/>
+				<textFieldExpression><![CDATA[$F{total_potongan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="162" y="81" width="100" height="20" uuid="e105fe3d-c70f-4370-9840-3c43a03322a5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_gaji}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="62" y="0" width="100" height="20" uuid="4f3edc2c-bc0a-4cfe-b04d-dbceffaf37cc"/>
+				<text><![CDATA[Gaji Pokok	  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="20" width="100" height="20" uuid="12680b05-a0c4-4b4d-b930-19330ef39531"/>
+				<text><![CDATA[Uang Tunjangan  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="40" width="100" height="20" uuid="ce4407a2-9442-4e2f-b7a4-a024b6a5e05c"/>
+				<text><![CDATA[Uang Lembur	  :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="60" width="100" height="20" uuid="10928e06-f623-4d25-8c52-18654a070520"/>
+				<text><![CDATA[Jumlah Potongan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="80" width="100" height="20" uuid="5c015cb8-9c73-4114-bd20-d2d482d4d8c2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Gaji	  :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="162" y="80" width="100" height="1" uuid="7a899279-77d9-46ed-860d-cd1b9dc40091"/>
+			</line>
+			<line>
+				<reportElement x="0" y="113" width="555" height="1" uuid="a912c7ac-3f90-46aa-8b93-aa79d1af8d3d"/>
+			</line>
+			<textField>
+				<reportElement x="455" y="113" width="100" height="20" uuid="c39cabfd-5e25-4ed3-b720-cce380ba7516"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="48" y="113" width="100" height="20" uuid="680db6c9-d376-4bd8-a860-1380b32b9d36"/>
+				<text><![CDATA[Bendahara,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="201" width="100" height="20" uuid="7f2a88f7-5341-4f92-b64e-455ac1d1046f"/>
+				<textElement verticalAlignment="Bottom"/>
+				<text><![CDATA[(.............................)]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="77" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
